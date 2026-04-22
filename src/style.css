@@ -1,0 +1,2236 @@
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --app-page-bg: #EEF1FB;
+  --app-card-bg: #F9FAFE;
+  --app-card-radius: 10px;
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--app-page-bg);
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
+
+.counter {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 24px;
+
+  &:hover {
+    border-color: var(--accent-border);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.hero {
+  position: relative;
+
+  .base,
+  .framework,
+  .vite {
+    inset-inline: 0;
+    margin: 0 auto;
+  }
+
+  .base {
+    width: 170px;
+    position: relative;
+    z-index: 0;
+  }
+
+  .framework,
+  .vite {
+    position: absolute;
+  }
+
+  .framework {
+    z-index: 1;
+    top: 34px;
+    height: 28px;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
+      scale(1.4);
+  }
+
+  .vite {
+    z-index: 0;
+    top: 107px;
+    height: 26px;
+    width: auto;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
+      scale(0.8);
+  }
+}
+
+#app {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  text-align: left;
+  border-inline: none;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: var(--app-page-bg);
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+
+  @media (max-width: 1024px) {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+}
+
+#next-steps {
+  display: flex;
+  border-top: 1px solid var(--border);
+  text-align: left;
+
+  & > div {
+    flex: 1 1 0;
+    padding: 32px;
+    @media (max-width: 1024px) {
+      padding: 24px 20px;
+    }
+  }
+
+  .icon {
+    margin-bottom: 16px;
+    width: 22px;
+    height: 22px;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+#docs {
+  border-right: 1px solid var(--border);
+
+  @media (max-width: 1024px) {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: 32px 0 0;
+
+  .logo {
+    height: 18px;
+  }
+
+  a {
+    color: var(--text-h);
+    font-size: 16px;
+    border-radius: 6px;
+    background: var(--social-bg);
+    display: flex;
+    padding: 6px 12px;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: var(--shadow);
+    }
+    .button-icon {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      flex: 1 1 calc(50% - 8px);
+    }
+
+    a {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+  }
+}
+
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border);
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4.5px;
+    border: 5px solid transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--border);
+  }
+  &::after {
+    right: 0;
+    border-right-color: var(--border);
+  }
+}
+
+/* 全局页面与卡片基线 */
+.app-page-bg,
+.med-page-inner,
+.med-ledger-page,
+.asset-page,
+.page {
+  background: var(--app-page-bg);
+}
+
+.app-panel,
+.med-card,
+.med-ledger-shell,
+.filter,
+.board,
+.sec,
+.form-section {
+  background: var(--app-card-bg);
+  border-radius: var(--app-card-radius);
+}
+
+.med-dash {
+  width: 100%;
+  height: 100svh;
+  background: #eaf3f9;
+  font-family: var(--sans);
+}
+
+.med-topbar {
+  height: 52px;
+  background: #1b6d97;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px 0 16px;
+  color: #ffffff;
+}
+
+.med-topbar-title-main {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 1.15;
+}
+
+.med-topbar-title-sub {
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.med-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.med-icon-btn {
+  appearance: none;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: default;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.med-icon-btn--click {
+  cursor: pointer;
+}
+
+.med-icon-btn--click:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.med-msg-svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.med-msg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  pointer-events: none;
+}
+
+.med-msg-layer > * {
+  pointer-events: auto;
+}
+
+.med-msg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.12);
+}
+
+.med-msg-panel {
+  position: absolute;
+  right: 16px;
+  top: 60px;
+  width: min(420px, calc(100vw - 32px));
+  max-height: min(480px, calc(100vh - 80px));
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  font-size: 13px;
+  color: #334155;
+}
+
+.med-msg-panel-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px 0 14px;
+  border-bottom: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.med-msg-tabs {
+  display: flex;
+  gap: 22px;
+}
+
+.med-msg-tab {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0 0 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  position: relative;
+}
+
+.med-msg-tab:hover {
+  color: #0f172a;
+}
+
+.med-msg-tab--on {
+  color: #1b77d2;
+}
+
+.med-msg-tab--on::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: #1b77d2;
+}
+
+.med-msg-actions {
+  display: flex;
+  gap: 12px;
+  padding-bottom: 8px;
+  font-size: 11px;
+}
+
+.med-msg-action {
+  appearance: none;
+  border: none;
+  background: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0;
+}
+
+.med-msg-action:hover {
+  color: #1b77d2;
+}
+
+.med-msg-list-wrap {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.med-msg-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.med-msg-item {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  background: #fff;
+}
+
+.med-msg-item--active {
+  background: #f1f5f9;
+}
+
+.med-msg-item:not(.med-msg-item--active):hover {
+  background: #fafbfc;
+}
+
+.med-msg-ico {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.med-msg-ico--sky {
+  background: #0ea5e9;
+}
+.med-msg-ico--emerald {
+  background: #10b981;
+}
+.med-msg-ico--amber {
+  background: #f59e0b;
+}
+.med-msg-ico--violet {
+  background: #8b5cf6;
+}
+
+.med-msg-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.med-msg-cat {
+  margin: 0;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.med-msg-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.med-msg-title {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.med-msg-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 4px;
+  vertical-align: 2px;
+  border-radius: 999px;
+  background: #ef4444;
+}
+
+.med-msg-date {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.med-msg-desc {
+  margin: 6px 0 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #64748b;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.med-msg-empty {
+  padding: 48px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* 右下角 Toast（默认两条，点击卡片或 ✕ 关闭） */
+.med-toast-stack {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2100;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(360px, calc(100vw - 32px));
+  pointer-events: none;
+}
+
+.med-toast-stack .med-toast {
+  pointer-events: auto;
+}
+
+.med-toast {
+  position: relative;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 12px 36px 12px 12px;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.med-toast:hover {
+  background: rgba(248, 250, 252, 0.95);
+}
+
+.med-toast-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 4px;
+  line-height: 1;
+  color: #5aa3e8;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.med-toast-close:hover {
+  background: #f1f5f9;
+}
+
+.med-toast-inner {
+  display: flex;
+  gap: 8px;
+}
+
+.med-toast-ico {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: #e8f3fc;
+  color: #1b77d2;
+}
+
+.med-toast-ico-svg {
+  display: block;
+  opacity: 0.9;
+}
+
+.med-toast-text {
+  min-width: 0;
+  flex: 1;
+}
+
+.med-toast-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  padding-right: 8px;
+}
+
+.med-toast-cat {
+  font-weight: 600;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.med-toast-time {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.med-toast-body {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #475569;
+}
+
+.med-layout {
+  height: calc(100svh - 52px);
+  display: flex;
+}
+
+.med-sidebar {
+  width: 200px;
+  background: #1c5b82;
+  color: #dbe7f3;
+}
+
+.med-sidebar-logo {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 10px;
+}
+
+.med-home-ico {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.med-home-ico--ledger {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.med-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0 12px;
+}
+
+.med-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #dbe7f3;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.med-sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.med-sidebar-link--active {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-weight: 600;
+  border-left: 3px solid #6ec7ff;
+  padding-left: 13px;
+}
+
+.med-page-inner {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.med-ledger-page {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.med-ledger-table-card {
+  flex: 1;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.med-ledger-card-head {
+  flex-shrink: 0;
+}
+
+.med-ledger-table-wrap {
+  flex: 1;
+  min-height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 资产台账页专用：勿复用 .med-card--table（含首页 grid 定位） */
+.med-ledger-table-card .med-ledger-table.el-table {
+  width: 100%;
+}
+
+.med-ledger-table {
+  width: 100%;
+}
+
+.med-ledger-op-gap {
+  margin: 0 6px;
+}
+
+.med-ledger-shell {
+  flex: 1;
+  min-height: 0;
+  border: 1px solid #dfe9f2;
+  border-radius: var(--app-card-radius);
+  background: var(--app-card-bg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.med-ledger-toolbar-a {
+  display: grid;
+  grid-template-columns: 76px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-bottom: 1px solid #e6edf3;
+  background: #f8fbfe;
+}
+
+.med-ledger-path {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.med-ledger-fields {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(180px, 1fr);
+  gap: 8px;
+}
+
+.med-ledger-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.med-ledger-toolbar-b {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-bottom: 1px solid #e6edf3;
+  background: #fff;
+}
+
+.med-ledger-label {
+  font-size: 12px;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.med-ledger-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.med-ledger-tag {
+  appearance: none;
+  border: 1px solid #dce7f2;
+  background: #f4f8fb;
+  color: #4b5563;
+  padding: 1px 8px;
+  border-radius: 2px;
+  font-size: 12px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.med-ledger-tag--on {
+  background: #e8f4ff;
+  color: #1b77d2;
+  border-color: #b5d8f6;
+}
+
+.med-ledger-table-wrap {
+  flex: 1;
+  min-height: 0;
+  padding: 0 8px;
+}
+
+.med-ledger-footer {
+  height: 32px;
+  border-top: 1px solid #e6edf3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+/* 左侧导航菜单：见 .med-sidebar-nav */
+
+.med-main {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  /* 左右边距统一 16px，上 10px，下 16px */
+  padding: 10px 16px 16px;
+  background: #eaf3f9;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 承载 RouterView，避免嵌套 flex 子项高度塌成 0 */
+.med-router-outlet {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.med-tabbar {
+  height: 34px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 6px 6px;
+}
+
+.med-tab {
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border-radius: 4px 4px 0 0;
+  border: 1px solid #dfe9f2;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.med-tab--active {
+  border-bottom-color: #ffffff;
+}
+
+.med-tab-ico {
+  opacity: 0.8;
+}
+
+.med-tab-close {
+  margin-left: 6px;
+  color: #94a3b8;
+  font-weight: 900;
+}
+
+.med-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: 106px minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.med-card {
+  background: var(--app-card-bg);
+  border: 1px solid #dfe9f2;
+  border-radius: var(--app-card-radius);
+  overflow: hidden;
+  height: auto;
+  min-height: 0;
+}
+
+.med-card--tall {
+  height: 100%;
+}
+
+.med-card-head {
+  height: 44px;
+  background: #f6fbff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px 0 12px;
+  border-bottom: 1px solid #e8f1f8;
+}
+
+.med-card-head-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.med-card-head-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.med-muted {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.med-card-body {
+  padding: 12px;
+  /* 让图表类内容能随卡片高度拉伸 */
+  height: 100%;
+  /* 全局规则：内容高度不允许溢出卡片 */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.med-card-body--chart {
+  /* 图表类卡片：顶部只留很小的间距，底部尽量贴近卡片边缘 */
+  padding: 4px 10px 6px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.med-card-head-icon {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.med-card-head-icon--blue {
+  background: #2d9cdb;
+}
+.med-card-head-icon--teal {
+  background: #2fbaa3;
+}
+.med-card-head-icon--indigo {
+  background: #4f83ff;
+}
+
+.med-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.med-chart--pie {
+  /* 随卡片高度自适应，保留一个最小高度避免过小 */
+  height: 100%;
+  min-height: 180px;
+}
+
+.med-pie-wrap {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.med-pie-legend {
+  flex: 0 0 200px;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.92);
+  /* 去掉图例外面的边框（只保留背景） */
+  border: none;
+  border-radius: 6px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+}
+
+.med-pie-legend-title {
+  font-size: 12px;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.med-pie-legend-total {
+  font-size: 11px;
+  font-weight: 800;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.med-pie-legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.med-pie-legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #334155;
+}
+
+.med-pie-legend-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+.med-pie-legend-name {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.med-pie-legend-value {
+  flex: 0 0 auto;
+  color: #0f172a;
+}
+
+.med-pie-legend-callout {
+  flex: 0 0 auto;
+  max-width: 140px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.4;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
+}
+
+.med-chart--bar {
+  height: 100%;
+  min-height: 0;
+}
+
+.med-card--welcome {
+  grid-column: 1;
+  grid-row: 1;
+  min-height: 84px;
+  height: 84px;
+  margin-bottom: 0;
+  align-self: start;
+}
+
+.med-card--welcome-gap {
+  margin-bottom: 0;
+}
+
+.med-card--filters {
+  grid-column: 2;
+  grid-row: 1;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  align-self: start;
+}
+
+.med-card--calendar {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.med-card--calendar .med-card-body {
+  padding: 0;
+}
+
+.med-card--calendar .med-el-calendar {
+  /* 让日历本身也用 flex 拉伸填满卡片剩余空间 */
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.med-card--pie {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.med-card--centerlist {
+  grid-column: 2;
+  /* 合并模块：中间卡片跨两行 */
+  grid-row: 1 / span 2;
+  /* 关键：让中间卡片成为高度容器，内部不允许溢出 */
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.med-center-tabs {
+  padding: 16px;
+  border-bottom: 1px solid #dfe9f2;
+  background: #ffffff;
+  flex: 0 0 auto;
+}
+
+/* 顶部合并模块：让分段 tab 填满容器 */
+.med-center-tabs .med-task-segmented {
+  width: 100%;
+  --el-segmented-item-selected-color: #0589cb;
+  --el-segmented-item-selected-bg-color: rgba(5, 137, 203, 0.14);
+  --el-border-color: #d9e8f5;
+}
+
+.med-center-tabs .med-task-segmented .el-segmented__item {
+  flex: 1 1 0;
+}
+
+.med-center-tabs .med-task-segmented .el-segmented__item.is-selected {
+  color: #0589cb;
+}
+
+/* 筛选行不允许横向溢出；右侧内容过长时可收缩 */
+.med-card--centerlist .med-task-filters {
+  flex: 0 0 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.med-card--centerlist .med-task-filter {
+  min-width: 0;
+}
+
+/* 让待办列表表格占满剩余高度，超出时在卡片内滚动，不向下溢出 */
+.med-card--centerlist .med-task-table.el-table {
+  flex: 1;
+  min-height: 0;
+}
+
+.med-card--centerlist .med-task-table .el-table__body-wrapper {
+  height: 100% !important;
+  overflow: auto;
+}
+
+.med-card--bar {
+  grid-column: 1;
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.med-card--table {
+  grid-column: 2 / span 2;
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.med-card--table .med-repair-table-wrap {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.med-dash .med-repair-table.el-table {
+  table-layout: fixed;
+}
+
+.med-card--bar .med-card-body {
+  padding: 4px 10px 16px;
+  flex: 1;
+  min-height: 0;
+}
+
+.med-card--bar .med-chart--bar {
+  flex: 1;
+  min-height: 0;
+}
+
+.med-card--table .med-repair-table.el-table {
+  flex: 1;
+  min-width: 920px;
+  min-height: 0;
+}
+
+.med-card--table .el-table__body-wrapper {
+  height: 100% !important;
+  overflow: auto !important;
+}
+
+/* 表格全局滚动条样式（颜色统一） */
+.med-dash .el-table__body-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: #9fb3c8 #e7eef5;
+}
+
+.med-dash .el-table__body-wrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.med-dash .el-table__body-wrapper::-webkit-scrollbar-track {
+  background: #e7eef5;
+  border-radius: 8px;
+}
+
+.med-dash .el-table__body-wrapper::-webkit-scrollbar-thumb {
+  background: #9fb3c8;
+  border-radius: 8px;
+}
+
+.med-dash .el-table__body-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #7f97b0;
+}
+
+.med-welcome {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 14px;
+}
+
+.med-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #d9e7f3 60%, #c6d9ea 100%);
+  border: 1px solid #dfe9f2;
+}
+
+.med-welcome-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.med-welcome-sub {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.med-welcome-btn {
+  margin-left: auto;
+  height: 28px;
+  border-radius: 4px;
+  border: 1px solid #1b6d97;
+  background: #1b6d97;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 0 12px;
+  cursor: default;
+}
+
+.med-filters {
+  /* 不再拉满整行高度，用内容自然高度 + 内边距控制间距 */
+  /* 间距统一 16px，背景高度随内容自适应 */
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.med-seg {
+  display: inline-flex;
+  border: 1px solid #dfe9f2;
+  background: #f7fbff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.med-seg-item {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #64748b;
+}
+
+.med-seg-item--active {
+  background: #1b6d97;
+  color: #ffffff;
+}
+
+.med-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.med-search-input {
+  width: 220px;
+  height: 28px;
+  border-radius: 4px;
+  border: 1px solid #dfe9f2;
+  background: #ffffff;
+  padding: 0 10px;
+  font-size: 12px;
+  outline: none;
+}
+
+.med-search-btn {
+  height: 28px;
+  border-radius: 4px;
+  border: 1px solid #dfe9f2;
+  background: #ffffff;
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #334155;
+  cursor: default;
+}
+
+.med-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding: 0 10px;
+  border-radius: 12px;
+  border: 1px solid #dfe9f2;
+  background: #ffffff;
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 800;
+  margin-left: 8px;
+}
+
+.med-pill--active {
+  background: #1b6d97;
+  border-color: #1b6d97;
+  color: #ffffff;
+}
+
+.med-list {
+  padding: 8px 0;
+}
+
+.med-list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eef4f9;
+}
+
+.med-list-row:last-child {
+  border-bottom: none;
+}
+
+.med-list-row-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.med-list-row-sub {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 260px;
+}
+
+.med-list-row-status {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 14px;
+  font-weight: 600;
+}
+
+.med-status--warn {
+  background: rgba(245, 158, 11, 0.12);
+  color: #b45309;
+}
+
+.med-status--doing {
+  background: rgba(59, 130, 246, 0.12);
+  color: #1d4ed8;
+}
+
+.med-status--ok {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+}
+
+.med-calendar-head {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  background: #f6fbff;
+  border-bottom: 1px solid #e8f1f8;
+}
+
+.med-cal-arrow {
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: #eaf3f9;
+  border-radius: 6px;
+  color: #6b7280;
+  font-size: 16px;
+  cursor: default;
+}
+
+.med-cal-month {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.med-calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 10px 10px 6px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.med-calendar-grid {
+  padding: 0 10px 12px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.med-day {
+  height: 32px;
+  border: 1px solid #eef4f9;
+  border-radius: 4px;
+  background: #fff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+.med-day--muted {
+  background: #f7fafc;
+  border-color: #f0f5f9;
+  opacity: 0.75;
+}
+
+.med-day-num {
+  font-size: 12px;
+  color: #111827;
+  margin-top: 6px;
+}
+
+.med-day-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.med-day-dot--orange {
+  background: #f59e0b;
+}
+
+.med-day-dot--purple {
+  background: #a855f7;
+}
+
+/* Element Plus 日历覆盖为当前风格，仅在 .med-dash 中生效 */
+.med-dash .med-el-calendar.el-calendar {
+  --el-calendar-border: #e8f1f8;
+  --el-calendar-header-border-bottom: #e8f1f8;
+  --el-calendar-selected-bg-color: #eaf3ff;
+  border: none;
+}
+
+.med-dash .med-el-calendar .el-calendar__header {
+  display: none;
+}
+
+.med-dash .med-el-calendar .el-calendar__body {
+  /* 左右 10，下边距 16，底部统一 16px 间距，并让 body 填满剩余高度 */
+  padding: 0 10px 16px;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.med-dash .med-el-calendar .el-calendar-table thead th {
+  font-size: 12px;
+  color: #6b7280;
+  padding: 10px 0 6px;
+}
+
+.med-dash .med-el-calendar .el-calendar-table td {
+  border: none;
+  padding: 0;
+  height: auto;
+}
+
+/* 让整张日历表格在 body 内拉伸，占满高度，减少底部空白 */
+.med-dash .med-el-calendar .el-calendar-table {
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.med-dash .med-el-calendar .el-calendar-day {
+  /* 自适应高度：由内边距和内容决定，不写死像素 */
+  height: 100%;
+  padding-bottom: 18px; /* 通过底部内边距拉高单元格视觉高度 */
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+  background: #ffffff;
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  box-sizing: border-box;
+}
+
+.med-dash .med-el-calendar .is-selected .el-calendar-day {
+  background: #e6f4ff;
+  border-color: #3b82f6;
+}
+
+.med-cal-cell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* 文字整体居中，通过 flex 控制 */
+  padding: 4px 6px 6px;
+  box-sizing: border-box;
+  font-size: 12px;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.med-cal-day {
+  font-weight: 500;
+  margin-top: 0;
+}
+
+.med-cal-tag {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  padding: 0 4px;
+  height: 14px;
+  line-height: 14px;
+  /* 按照设计图，角标无圆角 */
+  border-radius: 0;
+  background: #fb923c;
+  color: #ffffff;
+  /* 略小一点，避免压到日期文本区域 */
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap; /* “待办”和后面的数字始终在一行显示 */
+}
+
+.med-cal-tag-num {
+  margin-left: 2px;
+}
+
+.med-table {
+  padding: 10px 0 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.med-table-head,
+.med-table-row {
+  display: grid;
+  /* 8 列：保证能在表格卡片宽度内完整显示（避免右侧列被挤出/截断） */
+  grid-template-columns: 95px 80px 90px 85px 95px 110px 90px 130px;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.med-table-head {
+  height: 38px;
+  background: #f6fbff;
+  border-bottom: 1px solid #e8f1f8;
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.med-table-row {
+  height: 40px;
+  border-bottom: 1px solid #eef4f9;
+  font-size: 12px;
+  color: #374151;
+}
+
+.med-table-row:last-child {
+  border-bottom: none;
+}
+
+.med-link {
+  color: #2563eb;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.med-link--muted {
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.med-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.med-tag--orange {
+  background: rgba(245, 158, 11, 0.15);
+  color: #b45309;
+}
+
+.med-tag--purple {
+  background: rgba(168, 85, 247, 0.14);
+  color: #7c3aed;
+}
+
+.med-tag--green {
+  background: rgba(16, 185, 129, 0.14);
+  color: #047857;
+}
+
+.med-status-text {
+  font-weight: 700;
+}
+
+.med-status-text--doing {
+  color: #1d4ed8;
+}
+.med-status-text--warn {
+  color: #b45309;
+}
+.med-status-text--ok {
+  color: #059669;
+}
+
+.med-pagination {
+  padding: 12px 10px 14px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.med-page-btn {
+  border: 1px solid #e5edf4;
+  background: #fff;
+  color: #64748b;
+  border-radius: 6px;
+  height: 28px;
+  min-width: 28px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: default;
+}
+
+.med-page-btn--active {
+  background: #eaf3ff;
+  border-color: #b7d4ff;
+  color: #1d4ed8;
+}
+
+/* ------------------------------
+   待办事项（参照图2）
+-------------------------------- */
+.med-task-tabs {
+  /* 收紧容器高度，避免 tab 底部与筛选行之间出现留白 */
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0 0 0 0;
+  border-bottom: 1px solid #dfe9f2;
+}
+
+.med-task-tab {
+  flex: 0 0 50%;
+  height: 28px;
+  margin: 0 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 900;
+  color: #1f6fa8;
+  background: #ffffff;
+  border: 1px solid transparent;
+  border-right-color: #dfe9f2;
+  cursor: default;
+}
+
+.med-task-tab--active {
+  background: #1b6d97;
+  color: #ffffff;
+  border-right-color: #1b6d97;
+}
+
+.med-task-help {
+  margin-left: auto;
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.med-task-filters {
+  /* 上方留白收紧为 8px，下方保留 16px，左右仍 16px */
+  padding: 8px 16px 16px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #64748b;
+  font-size: 12px;
+  border-bottom: 1px solid #eef4f9;
+}
+
+.med-task-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.med-task-filter-label {
+  font-weight: 800;
+  color: #64748b;
+}
+
+.med-task-filter-value {
+  padding: 2px 8px;
+  background: #f8fafc;
+  border: 1px solid #e5edf4;
+  border-radius: 6px;
+  color: #334155;
+  font-weight: 800;
+}
+
+.med-task-list {
+  padding: 0;
+}
+
+.med-task-row {
+  min-height: 40px;
+  /* 上下各 8 像素，行与行之间总间距约 16 像素 */
+  padding: 8px 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid #eef4f9;
+}
+
+.med-task-row:last-child {
+  border-bottom: none;
+}
+
+.med-task-row-left {
+  min-width: 0;
+  flex: 1;
+  padding-right: 8px;
+}
+
+.med-task-row-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.med-task-bullet {
+  width: 9px;
+  height: 9px;
+  border-radius: 1px;
+  background: #1b6d97;
+}
+
+.med-task-bullet--blue {
+  background: #1b6d97;
+}
+
+.med-task-row-title-main {
+  font-weight: 900;
+  color: #1f2937;
+  white-space: nowrap;
+}
+
+.med-task-row-title-time {
+  color: #94a3b8;
+  font-weight: 800;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.med-task-row-desc {
+  font-size: 12px;
+  color: #334155;
+  font-weight: 700;
+  margin-top: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.med-task-badge {
+  flex: 0 0 auto;
+  /* 标签整体缩小一点，避免过于“粗大” */
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 90px; /* 限制标签最大宽度，为左侧文本腾出空间 */
+}
+
+.med-task-badge--orange {
+  background: rgba(245, 158, 11, 0.16);
+  color: #b45309;
+}
+
+.med-task-badge--beige {
+  background: rgba(251, 207, 232, 0.16);
+  color: #be123c;
+}
+
+.med-task-badge--red {
+  background: rgba(239, 68, 68, 0.14);
+  color: #dc2626;
+}
+
+.med-task-filter-value--select {
+  width: 170px;
+  height: 24px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.med-task-filter-value-text {
+  min-width: 1px;
+}
+
+.med-task-filter-caret {
+  color: #64748b;
+  font-size: 10px;
+  margin-left: 8px;
+}
+
+.med-task-filter-to {
+  padding: 0 2px;
+  background: transparent;
+  border: none;
+  font-weight: 900;
+  color: #64748b;
+}
+
+/* ------------------------------
+   报修工单（参照图1）
+-------------------------------- */
+.med-fault {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 12px;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.med-fault--critical {
+  background: rgba(239, 68, 68, 0.14);
+  color: #dc2626;
+}
+
+.med-fault--major {
+  background: rgba(245, 158, 11, 0.14);
+  color: #ea580c;
+}
+
+.med-fault--normal {
+  background: rgba(59, 130, 246, 0.12);
+  color: #1d4ed8;
+}
+
+.med-state {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 12px;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.med-state--dispatch {
+  background: rgba(59, 130, 246, 0.12);
+  color: #1d4ed8;
+}
+
+.med-state--paused {
+  background: rgba(148, 163, 184, 0.18);
+  color: #475569;
+}
+
+.med-state--done {
+  background: rgba(16, 185, 129, 0.14);
+  color: #059669;
+}
+
+.med-state-person {
+  color: #111827;
+  font-weight: 900;
+  font-size: 12px;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ------------------------------
+   Element Plus 控件样式接管（仅作用于 .med-dash 内）
+-------------------------------- */
+.med-dash .med-task-segmented.el-segmented {
+  background: #ffffff;
+  border: none;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.med-dash .med-task-segmented .el-segmented__item {
+  height: 28px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 900;
+  color: #1f6fa8;
+  border: 1px solid #dfe9f2;
+  border-right: none;
+  background: #ffffff;
+}
+
+.med-dash .med-task-segmented .el-segmented__item.is-selected {
+  color: #ffffff;
+}
+
+.med-dash .med-task-segmented .el-segmented__item-selected {
+  /* el-segmented 的选中背景层（绝对定位） */
+  background: #1b6d97 !important;
+}
+
+.med-business-dd {
+  display: inline-flex;
+  align-items: center;
+}
+
+.med-business-dd-trigger {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid #e5edf4;
+  background: #ffffff;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 0;
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.med-business-dd-menu.el-dropdown-menu {
+  border: 1px solid #e5edf4;
+}
+
+.med-dash .med-task-table .el-table__header-wrapper {
+  display: none;
+}
+
+.med-dash .med-task-table .el-table__row td {
+  /* 左侧保持 16px，右侧收紧以贴近模块边（考虑滚动条占位） */
+  padding: 10px 8px 10px 16px !important;
+  border-bottom: 1px solid #eef4f9;
+}
+
+.med-dash .med-task-table .el-table__row:last-child td {
+  border-bottom: none;
+}
+
+.med-dash .med-task-table .el-table__cell {
+  vertical-align: top;
+}
+
+.med-dash .med-repair-table.el-table {
+  background: transparent;
+}
+
+.med-dash .med-repair-table .el-table__header-wrapper {
+  background: #f6fbff;
+}
+
+.med-dash .med-repair-table .el-table__header .el-table__cell {
+  background: #f6fbff;
+  height: 38px;
+  /* 表头左右各 8 像素，减少空白 */
+  padding: 0 8px !important;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  border-bottom: 1px solid #e8f1f8;
+  /* 防止中文标题自动换行，强制一行显示 */
+  white-space: nowrap !important;
+  overflow: visible;
+}
+
+.med-dash .med-repair-table .el-table__body .el-table__cell {
+  /* 表体单元格左右各 8 像素，减少两侧空白 */
+  padding: 0 8px !important;
+  height: 40px;
+  font-size: 12px;
+  color: #374151;
+  border-bottom: 1px solid #eef4f9;
+}
+
+.med-dash .med-repair-table .el-table__body tr:last-child td {
+  border-bottom: none;
+}
+
+.med-dash .med-repair-pagination .el-pagination.is-background .btn-prev,
+.med-dash .med-repair-pagination .el-pagination.is-background .btn-next,
+.med-dash .med-repair-pagination .el-pagination.is-background .el-pager li {
+  background: transparent;
+}
+
+.med-dash .med-repair-pagination .el-pager li {
+  border: 1px solid #e5edf4;
+  border-radius: 6px;
+  height: 28px;
+  min-width: 28px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.med-dash .med-repair-pagination .el-pager li.is-active {
+  background: #eaf3ff;
+  border-color: #b7d4ff;
+  color: #1d4ed8;
+}
+
+.med-dash .med-repair-pagination .btn-prev,
+.med-dash .med-repair-pagination .btn-next {
+  border: 1px solid #e5edf4;
+  border-radius: 6px;
+  height: 28px;
+  min-width: 28px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
